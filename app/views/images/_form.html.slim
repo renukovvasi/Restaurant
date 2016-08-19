@@ -1,0 +1,16 @@
+.upload_form
+	= form_for @image do |f|
+		= f.label :name
+		= f.text_field :name
+		br
+		= f.label :description
+		= f.text_field :description
+		br
+		= f.label :category
+		= f.select(:attachable_type, options_for_select(Item.all.collect{|x| [x.name,x.id]}))
+
+		br
+		= f.label :upload_image
+		= f.file_field :image
+		br
+		= f.submit "Upload"

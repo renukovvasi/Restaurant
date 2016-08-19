@@ -1,0 +1,8 @@
+development:
+  host: 10.18.83.141
+  adapter: postgresql
+  encoding: unicode
+  database: knome_development_R
+  pool: 5
+  username: postgres
+  password: postgres

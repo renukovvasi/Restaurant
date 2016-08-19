@@ -1,0 +1,35 @@
+h1 Menu
+.image_upload
+  p 
+    | Upload new item
+  = button_to "Upload", new_image_path, method: :get
+.menu
+  .row
+    - @items.each do |item|
+      - if item.name == 'cake'
+        .col-lg-3.col-md-3.col-sm-6.col-xs-12
+          .hovereffect
+            .img class = "img-responsive"
+              = link_to image_tag( "cakes.jpeg", :alt => " ")
+            .overlay
+              h2 Cakes
+              p
+                = link_to 'ORDER HERE', item_cakes_path(item.id)
+      - elsif item.name == 'choclate'
+        .col-lg-3.col-md-3.col-sm-6.col-xs-12
+          .hovereffect
+            .img class = "img-responsive"
+              = link_to image_tag( "choclates.jpeg", :alt => " ")
+            .overlay
+              h2 Choclates
+              p
+                = link_to 'ORDER HERE', item_choclates_path(item.id)
+      - else
+        .col-lg-3.col-md-3.col-sm-6.col-xs-12
+          .hovereffect
+            .img class = "img-responsive"
+              = link_to image_tag( "cookies.jpeg", :alt => " ")
+            .overlay
+              h2 Cookies
+              p
+                = link_to 'ORDER HERE', item_cookies_path(item.id)

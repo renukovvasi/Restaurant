@@ -1,0 +1,4 @@
+= form_for :users, action: :index, method: :get do |f|
+    = f.text_field :search
+    = f.submit "Search", :name => nil 
+   

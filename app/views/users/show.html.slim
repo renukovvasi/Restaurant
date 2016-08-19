@@ -1,0 +1,13 @@
+ h1 User Details
+ = @user.name
+ <br>
+ = @user.email
+ <br>
+ = @user.mobile_number
+ <br>
+ - if @user.bookings.present?
+ 	= link_to 'Bookings',user_bookings_path(@user.id)
+ <br><br>
+ = link_to 'Book_new', new_user_booking_path(@user.id)
+ <br>
+ = link_to 'Back',root_path

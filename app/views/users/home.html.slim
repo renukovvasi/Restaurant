@@ -1,0 +1,56 @@
+- unless current_user 
+  .login  
+    .div class="container"
+      h3 Already Member?
+      button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" Login
+      .div class="modal fade" id="myModal" role="dialog"
+        .div class="modal-dialog modal-sm"
+          .div class="modal-content"
+            .div class="modal-header"
+              button type="button" class="close" data-dismiss="modal"
+              h4 class="modal-title" Login      
+            .div class="modal-body"
+              = render 'users/login'        
+            .div class="modal-footer"
+              button type="button" class="btn btn-default" data-dismiss="modal" Close
+.notice
+  - @images = Image.where(attachable_type: 4)
+  - @images.each do |img|
+    .notice_slide class="carousel slide" data-ride="carousel"
+      = image_tag(img.image.url, class: 'list_image', size: '200x200')
+.home_page
+  .row              
+    .col-lg-3.col-md-4.col-sm-6.col-xs-12
+      .hovereffect
+        .img class = "img-responsive"
+        	= link_to image_tag( "list1.jpeg", :alt => " ")
+        .overlay
+          h2 Menu
+          p
+            = link_to 'LINK HERE', items_path
+    .col-lg-3.col-md-4.col-sm-6.col-xs-12
+      .hovereffect
+        .img class = "img-responsive"
+        	= link_to image_tag( "list1.jpeg", :alt => " ")
+        .overlay
+        	h2 Offers
+        	p 
+        		= link_to 'LINK HERE'
+    .col-lg-3.col-md-4.col-sm-6.col-xs-12
+      .hovereffect
+        .img class = "img-responsive"
+        	= link_to image_tag( "list1.jpeg", :alt => " ")
+        .overlay
+        	h2 Store Locator
+        	p 
+        		= link_to 'LINK HERE'
+    .col-lg-3.col-md-4.col-sm-6.col-xs-12
+      .hovereffect
+        .img class = "img-responsive"
+        	= link_to image_tag( "list1.jpeg", :alt => " ")
+        .overlay
+        	h2 Gallery
+        	p 
+        		= link_to 'LINK HERE'
+
+   

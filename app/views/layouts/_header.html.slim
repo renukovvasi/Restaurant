@@ -1,0 +1,22 @@
+.header class="navbar navbar-fixed-top navbar-inverse"
+  .div class="container"    
+    .nav
+      .ul class = "nav navbar-nav navbar-center"
+      	li class = "divider"
+      		= link_to "Casper Bakery", root_path
+      .ul class="nav navbar-nav navbar-right"
+        li class = "divider" 
+        	= link_to "Contact",  contacts_users_path 
+        - if current_user
+          li class = "divider"
+            = link_to "Profile", user_path(current_user.id)
+          li class = "divider"
+            = link_to "Cart", user_path(current_user.id)
+          li class = "divider" 
+            = link_to "Logout", sign_out_path, method: :post
+        - else
+          li class = "divider" 
+            = link_to "Signup", new_user_path
+          li class = "divider"
+            = link_to "Login"
+ 

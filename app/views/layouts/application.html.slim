@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title My App
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag    "app", media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag "app", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"    
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+    script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  body
+  	header
+      .div class = 'back_ground'
+  		= render 'layouts/header'
+  	main role = "main"
+  		= render 'layouts/messages' 
+    	= yield
+

@@ -1,0 +1,14 @@
+table
+	thead
+		tr
+			th Name
+			th Email
+			th Mobile Number
+			th colspan=3
+		tbody
+			- @contacts.each do |con|
+				tr
+					= con.name
+					= con.email
+					= con.mobile_number
+					br

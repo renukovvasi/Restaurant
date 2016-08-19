@@ -1,56 +1,70 @@
 - unless current_user 
-  .login  
-    .div class="container"
-      h3 Already Member?
-      button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" Login
-      .div class="modal fade" id="myModal" role="dialog"
-        .div class="modal-dialog modal-sm"
-          .div class="modal-content"
-            .div class="modal-header"
-              button type="button" class="close" data-dismiss="modal"
-              h4 class="modal-title" Login      
-            .div class="modal-body"
-              = render 'users/login'        
-            .div class="modal-footer"
-              button type="button" class="btn btn-default" data-dismiss="modal" Close
-.notice
-  - @images = Image.where(attachable_type: 4)
-  - @images.each do |img|
-    .notice_slide class="carousel slide" data-ride="carousel"
-      = image_tag(img.image.url, class: 'list_image', size: '200x200')
+	.login  
+		.div class="container"
+			h3 Already Member?
+			button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" Login
+			.div class="modal fade" id="myModal" role="dialog"
+				.div class="modal-dialog modal-sm"
+					.div class="modal-content"
+						.div class="modal-header"
+							button type="button" class="close" data-dismiss="modal"
+							h4 class="modal-title" Login      
+						.div class="modal-body"
+							= render 'users/login'        
+						.div class="modal-footer"
+							button type="button" class="btn btn-default" data-dismiss="modal" Close 
+.div class="notice"
+	.myCarousel class="carousel slide" data-ride="carousel"
+		.ol class="carousel-indicators"
+			li data-target="#myCarousel" data-slide-to="0" class="active"
+			li data-target="#myCarousel" data-slide-to="1"
+			li data-target="#myCarousel" data-slide-to="2"
+		.div class="carousel-inner" role="listbox"
+			.div class="item active"
+				= image_tag(Image.where(attachable_type: 4).order('id').first.image.url, class: 'list_image', size: '460x345')
+			.div class="item"
+				= image_tag(Image.where(attachable_type: 4).order('id').second.image.url, class: 'list_image', size: '460x345')
+			.div class= "item"
+				= image_tag('cookies.jpeg', class: 'list_image', size: '460x345')
+		.a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"
+			.span class="glyphicon glyphicon-chevron-left" aria-hidden="true"
+			.span class="sr-only" Previous
+		.a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"
+			.span class="glyphicon glyphicon-chevron-right" aria-hidden="true"
+			.span class="sr-only" Next
 .home_page
-  .row              
-    .col-lg-3.col-md-4.col-sm-6.col-xs-12
-      .hovereffect
-        .img class = "img-responsive"
-        	= link_to image_tag( "list1.jpeg", :alt => " ")
-        .overlay
-          h2 Menu
-          p
-            = link_to 'LINK HERE', items_path
-    .col-lg-3.col-md-4.col-sm-6.col-xs-12
-      .hovereffect
-        .img class = "img-responsive"
-        	= link_to image_tag( "list1.jpeg", :alt => " ")
-        .overlay
-        	h2 Offers
-        	p 
-        		= link_to 'LINK HERE'
-    .col-lg-3.col-md-4.col-sm-6.col-xs-12
-      .hovereffect
-        .img class = "img-responsive"
-        	= link_to image_tag( "list1.jpeg", :alt => " ")
-        .overlay
-        	h2 Store Locator
-        	p 
-        		= link_to 'LINK HERE'
-    .col-lg-3.col-md-4.col-sm-6.col-xs-12
-      .hovereffect
-        .img class = "img-responsive"
-        	= link_to image_tag( "list1.jpeg", :alt => " ")
-        .overlay
-        	h2 Gallery
-        	p 
-        		= link_to 'LINK HERE'
+	.row              
+		.col-lg-3.col-md-4.col-sm-6.col-xs-12
+			.hovereffect
+				.img class = "img-responsive"
+					= link_to image_tag( "list1.jpeg", :alt => " ")
+				.overlay
+					h2 Menu
+					p
+						= link_to 'LINK HERE', items_path
+		.col-lg-3.col-md-4.col-sm-6.col-xs-12
+			.hovereffect
+				.img class = "img-responsive"
+					= link_to image_tag( "list1.jpeg", :alt => " ")
+				.overlay
+					h2 Offers
+					p 
+						= link_to 'LINK HERE'
+		.col-lg-3.col-md-4.col-sm-6.col-xs-12
+			.hovereffect
+				.img class = "img-responsive"
+					= link_to image_tag( "list1.jpeg", :alt => " ")
+				.overlay
+					h2 Store Locator
+					p 
+						= link_to 'LINK HERE'
+		.col-lg-3.col-md-4.col-sm-6.col-xs-12
+			.hovereffect
+				.img class = "img-responsive"
+					= link_to image_tag( "list1.jpeg", :alt => " ")
+				.overlay
+					h2 Gallery
+					p 
+						= link_to 'LINK HERE'
 
-   
+	 

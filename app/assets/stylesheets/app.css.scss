@@ -97,7 +97,9 @@ ul.nav li {
 }
 
 .notice {
-  height: 50%;
+  height: 10%;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .menu {
   margin-left: 70px;
@@ -115,4 +117,8 @@ ul.nav li {
     float: right;
     padding: 15px;   
 }
-
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+      width: 40%;
+      margin: auto;
+  }

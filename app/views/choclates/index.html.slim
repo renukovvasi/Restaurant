@@ -4,9 +4,6 @@ h1 Choclates
 	= button_to 'Menu', items_path, method: :get
 	- @images.each do |img|
 		.col-lg-3.col-md-3.col-sm-6.col-xs-12
-			= image_tag(img.image.url, class: 'list_image', size: '200x200')
-			= img.name
-			
-
+			= link_to image_tag(img.image.url, class: 'list_image', size: '200x200'),{action: 'show', controller: 'choclates', id: img.id}
 .menu_filter	
 	p cakes filters

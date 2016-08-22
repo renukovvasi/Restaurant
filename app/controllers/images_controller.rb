@@ -6,7 +6,16 @@ class ImagesController < ApplicationController
 
 	def create
 		@image = Image.create(image_params)
-		redirect_to @image
+		params[:image].delete :attachable_type
+		params[:image].delete :image
+		if @image.item_type.name == Cake.name
+			@cake = Cake.create(image_params)
+		elsif @image.item_type.name == Choclate.class
+			@choc = Choclate.create(image_params)
+	  elsif @image.item_type.name == Choclate.class
+	  	@cook = Cookie.create(image_params)
+	  end	
+	  redirect_to @image		
 	end
 
 	def show
@@ -20,6 +29,6 @@ class ImagesController < ApplicationController
 	end
 
 	def image_params
-		params[:image].permit(:name,:description,:image,:attachable_type)
+		params[:image].permit(:name,:description,:image,:attachable_type,:price)
 	end
 end

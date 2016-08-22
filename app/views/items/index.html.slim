@@ -6,7 +6,7 @@ h1 Menu
 .menu
   .row
     - @items.each do |item|
-      - if item.name == 'cake'
+      - if item.name == 'Cake'
         .col-lg-3.col-md-3.col-sm-6.col-xs-12
           .hovereffect
             .img class = "img-responsive"
@@ -15,7 +15,7 @@ h1 Menu
               h2 Cakes
               p
                 = link_to 'ORDER HERE', item_cakes_path(item.id)
-      - elsif item.name == 'choclate'
+      - elsif item.name == 'Choclate'
         .col-lg-3.col-md-3.col-sm-6.col-xs-12
           .hovereffect
             .img class = "img-responsive"
@@ -24,7 +24,7 @@ h1 Menu
               h2 Choclates
               p
                 = link_to 'ORDER HERE', item_choclates_path(item.id)
-      - else
+      - elsif item.name == 'Cookie'
         .col-lg-3.col-md-3.col-sm-6.col-xs-12
           .hovereffect
             .img class = "img-responsive"

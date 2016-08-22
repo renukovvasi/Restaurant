@@ -1,11 +1,10 @@
 h1 Cakes
-- @images = Image.where(attachable_type: 1)
-.menu_cakes
+.menu_cakes 
 	= button_to 'Menu', items_path, method: :get
-	- @images.each do |img|
+	- @cakes.each do |img|
 		.col-lg-3.col-md-3.col-sm-6.col-xs-12
-			= image_tag(img.image.url, class: 'list_image', size: '200x200')
-			= link_to img.name
+			= link_to image_tag(img.image.url, class: 'img-rounded', size: '200x200'),{action: 'show', controller: 'cakes', id: img.id}
+			= link_to img.name, {action: 'show', controller: 'cakes', id: img.id}
 
 .menu_filter	
 	p cakes filters

@@ -12,3 +12,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( app.css )
 Rails.application.config.assets.precompile += %w( app.js )
 Rails.application.config.assets.precompile += %w( login_effect.js)
+Rails.application.config.assets.precompile += %w( items.scss )
+

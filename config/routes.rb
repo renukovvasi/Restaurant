@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :bookings
     get 'home'
     get 'search'
+    get 'cart'
     collection do 
       get 'contacts'
     end

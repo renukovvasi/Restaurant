@@ -1,6 +1,6 @@
 .item_page
 	= image_tag(@item.image.url, class: 'img-rounded', size: '350x350')
 .item_details
-	= render 'shared/item_details', item: @item
+	= render 'shared/item_details',item: @item
 h2 Description
 = @item.description

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   has_many :bookings
   has_many :uploaded_images
+  has_many :cart
+  has_many :orders, class_name: "OrderedItem"
 
   def self.authenticate(email, password)
     user = User.find_by_email(email)
@@ -30,6 +32,5 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
-  def cart
-  end
+
 end

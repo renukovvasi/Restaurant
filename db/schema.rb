@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822060147) do
+ActiveRecord::Schema.define(version: 20160826123248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,6 +44,14 @@ ActiveRecord::Schema.define(version: 20160822060147) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "price"
+    t.integer  "occation_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "choclates", force: :cascade do |t|
@@ -72,12 +81,59 @@ ActiveRecord::Schema.define(version: 20160822060147) do
     t.integer  "price"
   end
 
+  add_index "images", ["name"], name: "name_uniq", unique: true, using: :btree
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "price"
+  end
+
+  create_table "occations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ordered_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "quantity",      default: 0
+    t.integer  "price"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "cart_id",       default: 0
+    t.integer  "user_id"
+    t.integer  "ordere_status"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "delivery_time"
+    t.integer  "cost"
+    t.integer  "weight"
+    t.integer  "quantity"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.hstore   "items"
+  end
+
+  create_table "total_lists", force: :cascade do |t|
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.integer  "order_count"
+    t.boolean  "status",      default: true
+    t.integer  "rating"
   end
 
   create_table "users", force: :cascade do |t|

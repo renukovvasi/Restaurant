@@ -1,0 +1,5 @@
+h2 Items in cart
+.cart_list
+	- current_user.cart.each do |item|
+		= item.name
+		= item.id

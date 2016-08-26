@@ -1,0 +1,6 @@
+p 'Place Order'
+- @image = Image.find(@cart.item_id)
+br
+= image_tag(@image.image.url, class: 'img-rounded', size: '350x350')
+br
+= render 'shared/item_details', item: @image

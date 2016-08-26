@@ -1,5 +1,7 @@
 class Image < ActiveRecord::Base
+	#include AddItemsToTotalList
 	mount_uploader :image, ImageUploader
+	#after_commit :create_object
 
 
 	belongs_to :item_type, :class_name => 'Item',foreign_key: :attachable_type
@@ -13,5 +15,6 @@ class Image < ActiveRecord::Base
 		elsif 
 			Cookie.where(name: self.name).first		
 		end
+		
 	end
 end

@@ -11,7 +11,7 @@
           li class = "divider"
             = link_to "Profile", user_path(current_user.id)
           li class = "divider"
-            = link_to "Cart", user_path(current_user.id)
+            = link_to "Cart", user_carts_path(current_user.id)
           li class = "divider" 
             = link_to "Logout", sign_out_path, method: :post
         - else

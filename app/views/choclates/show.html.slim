@@ -2,5 +2,6 @@
 	= image_tag(@item.image.url, class: 'img-rounded', size: '350x350')
 .item_details
 	= render 'shared/item_details',item: @item
+	= button_to 'Add to cart', {controller: 'ordereditems', action: 'create', user_id: current_user.id, item_id: @item.id}, method: :post
 h2 Description
 = @item.description

@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   root 'users#home'
 
   resources :users do
+    resources :orders
+    resources :carts
+    resources :ordereditems
     resources :bookings
     get 'home'
     get 'search'
-    get 'cart'
     collection do 
       get 'contacts'
     end
@@ -31,6 +33,9 @@ Rails.application.routes.draw do
   
   resources :businesshours
   resources :images
+  resources :total_lists
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
